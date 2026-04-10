@@ -1,0 +1,57 @@
+===================================
+  NOTES LINUX - JOUR 1
+  Commandes de base DevOps
+===================================
+
+--- NAVIGATION ---
+
+pwd         → Affiche le dossier où tu te trouves
+cd /chemin  → Se déplacer dans un dossier
+ls -lah     → Lister les fichiers avec tailles et fichiers cachés
+whoami      → Affiche ton nom d'utilisateur
+
+--- FICHIERS ---
+
+cat fichier.txt       → Afficher le contenu d'un fichier
+nano fichier.txt      → Éditer un fichier (Ctrl+O pour sauver, Ctrl+X pour quitter)
+touch fichier.txt     → Créer un fichier vide
+mkdir -p dossier      → Créer un dossier (et les parents si besoin)
+rm fichier.txt        → Supprimer un fichier
+rm -rf dossier/       → Supprimer un dossier et tout son contenu (ATTENTION)
+
+--- RECHERCHE ---
+
+find . -name "*.log"              → Chercher des fichiers par nom
+find . -name "*.log" -size +1M    → Chercher des fichiers > 1 Mo
+grep "mot" fichier.txt            → Chercher un mot dans un fichier
+grep -r "mot" /chemin/            → Chercher un mot dans tout un dossier
+
+--- DIAGNOSTIC SYSTÈME (ton kit de survie DevOps) ---
+
+top         → Voir les processus en temps réel (q pour quitter)
+df -h       → Espace disque disponible
+free -h     → Mémoire RAM utilisée / disponible
+ss -tulnp   → Ports réseau ouverts
+du -sh *    → Taille de chaque dossier
+
+--- GIT (les bases) ---
+
+git init                        → Initialiser un repo
+git add fichier.txt             → Ajouter un fichier au suivi
+git add .                       → Ajouter TOUS les fichiers modifiés
+git commit -m "message"         → Sauvegarder un état du projet
+git status                      → Voir ce qui a changé
+git log --oneline               → Historique des commits en résumé
+git diff                        → Voir les modifications en cours
+
+--- RÈGLES DU PROF ---
+
+1. Tout faire dans le terminal, pas d'interface graphique
+2. Un exercice = un commit
+3. Écrire ses notes avec ses propres mots
+4. La régularité bat l'intensité
+
+===================================
+  Prochaine étape : permissions Linux
+  chmod, chown, et scripts bash
+===================================
