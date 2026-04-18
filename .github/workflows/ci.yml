@@ -1,0 +1,24 @@
+name: CI DevOps
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image Docker
+        run: docker build -t mon-app ./app-complete
+
+      - name: Lancer les conteneurs
+        run: |
+          cd app-complete
+          docker compose up -d
+
+      - name: Tester l'app
+        run: |
+          sleep 5
+          curl -f http://localhost:5000
