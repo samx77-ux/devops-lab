@@ -1,0 +1,13 @@
+from flask import Flask
+import redis
+
+app = Flask(__name__)
+cache = redis.Redis(host='redis', port=6379)
+
+@app.route('/')
+def index():
+    visits = cache.incr('visits')
+    return f'<h1>Mon app DevOps</h1><p>Nombre de visites : {visits}</p>'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
