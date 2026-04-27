@@ -1,0 +1,27 @@
+=== NOTES TERRAFORM ===
+
+CONCEPT : Infrastructure as Code
+Au lieu de cliquer pour créer des serveurs, tu écris un fichier texte.
+
+FICHIER main.tf :
+- terraform {}       → de quels outils j'ai besoin (providers)
+- provider "xxx" {}  → connecte-toi à cet outil (Docker, AWS, Azure...)
+- resource "xxx"     → crée cette chose (conteneur, serveur, base de données)
+
+LES 3 COMMANDES :
+- terraform init     → prépare le chantier (à faire 1 seule fois)
+- terraform plan     → montre ce qui va se passer (TOUJOURS vérifier avant)
+- terraform apply    → construit pour de vrai
+- terraform destroy  → détruit tout ce qui a été créé
+
+ANALOGIE :
+- main.tf = plan de l'architecte
+- provider = les ouvriers spécialisés
+- resource = ce qu'on construit
+- init = préparer le chantier
+- plan = relire le plan avant de construire
+- apply = construire
+- destroy = démolir
+
+RÈGLE D'OR :
+Jamais créer une ressource à la main. Tout en code. Tout versionné.
